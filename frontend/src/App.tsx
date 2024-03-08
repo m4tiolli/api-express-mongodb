@@ -1,8 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
+import Header from "./components/Header";
+import Livro from "./components/Livro";
 
 interface Livro {
   titulo: string;
+  editora: string;
+  preco: number;
+  paginas: number;
+  autor: {
+    nome: string;
+    nacionalidade: string;
+  };
 }
 
 function App() {
@@ -13,11 +22,12 @@ function App() {
 
   return (
     <>
-      {livros.map((livro: Livro, index) => (
-        <div key={index}>
-          <p>{livro.titulo}</p>
-        </div>
-      ))}
+      <Header />
+      <main className="w-full h-dvh flex items-center justify-center flex-col">
+        {livros.map((livro: Livro, index) => (
+          <Livro key={index} livro={livro} />
+        ))}
+      </main>
     </>
   );
 }
