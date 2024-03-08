@@ -1,5 +1,6 @@
 type Props = {
   livro: {
+    imagem: string;
     titulo: string;
     editora: string;
     preco: number;
@@ -13,14 +14,13 @@ type Props = {
 
 export default function Livro({ livro }: Props) {
   return (
-    <div>
-      <img src="" alt="" />
-      <h1>{livro.titulo}</h1>
-      <h3>{livro.preco}</h3>
+    <div className="bg-zinc-100 m-auto w-60 p-1 h-80 flex items-center text-center justify-center flex-col shadow-md rounded-xl">
+      <img className="h-40 w-auto" src={livro.imagem} alt="" />
+      <h1 className="font-bold text-xl">{livro.titulo}</h1>
+      <h3 className="font-medium">{livro.preco}</h3> 
       <h3>{livro.editora}</h3>
       <h3>{livro.paginas}</h3>
       <h3>{livro.autor.nome}</h3>
-      <h3>{livro.autor.nacionalidade}</h3>
     </div>
   );
 }

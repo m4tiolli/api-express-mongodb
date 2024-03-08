@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Livro from "./components/Livro";
 
 interface Livro {
+  imagem: string;
   titulo: string;
   editora: string;
   preco: number;
@@ -21,14 +22,14 @@ function App() {
     .then((response) => setLivros(response.data));
 
   return (
-    <>
+    <div className="flex items-center w-full flex-col relative">
       <Header />
-      <main className="w-full h-dvh flex items-center justify-center flex-col">
+      <main className="mt-10 w-3/5 h-fit grid grid-cols-3 gap-4">
         {livros.map((livro: Livro, index) => (
           <Livro key={index} livro={livro} />
         ))}
       </main>
-    </>
+    </div>
   );
 }
 
